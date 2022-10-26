@@ -1,4 +1,4 @@
-class Public::PostsController < ApplicationController
+class Customer::PostsController < ApplicationController
   
   def index
   end

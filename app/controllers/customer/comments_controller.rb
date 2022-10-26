@@ -1,4 +1,4 @@
-class Public::CommentsController < ApplicationController
+class Customer::CommentsController < ApplicationController
   
   def index
   end
