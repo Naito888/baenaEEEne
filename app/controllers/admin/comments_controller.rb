@@ -1,4 +1,5 @@
 class Admin::CommentsController < ApplicationController
+  
   def index
   end
   
@@ -6,7 +7,6 @@ class Admin::CommentsController < ApplicationController
   end
   
   def create
-  
   end
   
   def update

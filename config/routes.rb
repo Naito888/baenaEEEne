@@ -26,11 +26,12 @@ end
 
 namespace :admin do
     
-    get '/'  => 'homes#top'
-    resources :comments, only:[:index, :create, :edit, :update]
-    resources :customers, only:[:index, :show, :edit, :update]
-    resources :posts, only:[:index, :show, :update]
-  end
+  get '/'  => 'homes#top'
+  resources :comments, only:[:index, :create, :edit, :update]
+  resources :customers, only:[:index, :show, :edit, :update]
+  resources :posts, only:[:index, :show, :update]
+    
+end
 
 
 
