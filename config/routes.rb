@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   #devise_for :publics
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+
+
   # 顧客用
 # URL /customer/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -18,19 +20,21 @@ devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
 }
 
 
+root :to =>  "customer/homes#top"
+
 
 namespace :customer do
-  get 'homes/top', to: 'homes#top'
+  
 end
 
 
 namespace :admin do
     
   get '/'  => 'homes#top'
-  resources :comments, only:[:index, :create, :edit, :update]
+  resources :posts, only:[:index, :new, :create, :show, :edit, :update]
   resources :customers, only:[:index, :show, :edit, :update]
-  resources :posts, only:[:index, :show, :update]
-    
+  resources :comments, only:[:index, :edit, :create, :update]
+  
 end
 
 
