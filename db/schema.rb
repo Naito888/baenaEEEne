@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_24_114008) do
+ActiveRecord::Schema.define(version: 2022_10_26_024807) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 2022_10_24_114008) do
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id", null: false
+    t.integer "post_id", null: false
+    t.text "comment", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -46,17 +49,22 @@ ActiveRecord::Schema.define(version: 2022_10_24_114008) do
   create_table "follows", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
   end
 
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id", null: false
+    t.integer "post_id", null: false
   end
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "caption"
+    t.text "caption", null: false
+    t.integer "customer_id", null: false
   end
 
 end
