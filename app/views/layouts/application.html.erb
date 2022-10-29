@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>映えないいね</title>
+    <title>Sample</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,22 +15,25 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
-            <span>映えないいね</span>
+            <span>Sample</span>
           </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
                 <li class="customer-name">
-                  ようこそ、<%= current_customer.last_name %> さん
+                  ようこそ、<%= current_customer.name %> さん
                 </li>
                 <li class="ml-4">
-                  <%= link_to "マイページ", mypage_path, class: "btn btn-outline-dark" %>
+                  <%= link_to "マイページ", customer_mypage_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-4">
-                  <%= link_to "商品一覧", items_path, class: "btn btn-outline-dark" %>
+                  <%= link_to "投稿一覧", customer_posts_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-4">
-                  <%= link_to "カート", cart_items_path, class: "btn btn-outline-dark" %>
+                  <%= link_to "映えない一覧", customer_likes_path, class: "btn btn-outline-dark" %>
+                </li>
+                <li class="ml-4">
+                  <%= link_to "フォローリスト", customer_follows_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-4 mr-4">
                   <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-dark" %>

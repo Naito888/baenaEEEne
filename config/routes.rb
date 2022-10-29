@@ -19,6 +19,7 @@ root :to =>  "customer/homes#top"
 namespace :customer do
   
   get 'homes/about'
+  get 'customers/mypage' => 'customers#show', as: 'mypage'
   resources :customers, only:[:show, :edit, :update]
   resources :posts, only:[:index, :new, :create, :confirm, :show, :edit, :update, :destroy, :destroy_all]
   resources :comments, only:[:index, :edit, :create, :update, :destroy]
