@@ -1,13 +1,10 @@
-
-
 <div class="container m-4 mx-auto">
-<div class="row">
-
-<h3 class="bg-light mb-4">ログイン</h3>
-</div>
-<div class="row">
-  <h3 class="bg-light ml-4">会員の方はこちらからログイン</h3>
-</div>
+  <div class="row">
+    <h3 class="bg-light mb-4">ログイン</h3>
+  </div>
+  <div class="row">
+    <h3 class="bg-light ml-4">会員の方はこちらからログイン</h3>
+  </div>
 <br>
 <%= form_with model: @customer, url: customer_session_path do |f| %>
   <div class="form-group row">
@@ -46,3 +43,4 @@
 <!--%= render "public/shared/links" %>-->
 
 </div>
+
