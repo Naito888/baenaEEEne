@@ -3,7 +3,7 @@ class Customer::PostsController < ApplicationController
   before_action :authenticate_customer!
 
   def new
-    @post = Post.new
+    @post = Post.new(post_params)
   end
 
   def index
@@ -12,8 +12,9 @@ class Customer::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.customer_id = current_customer.id
     @post.save
-    redirect_to customer_posts_path(@post.id)
+    redirect_to customer_post_path
   end
 
   def confirm
@@ -38,7 +39,7 @@ class Customer::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:customer_id, :caption, :image)
+    params.require(:post).permit(:customer_id, :name, :caption)
   end
 
 end
