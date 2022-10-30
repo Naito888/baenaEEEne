@@ -1,11 +1,10 @@
 class Post < ApplicationRecord
 
-  has_one_attached :image
   belongs_to :customer
-  has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   
+  has_one_attached :image
   
   def get_image
     unless image.attached?

@@ -1,5 +1,6 @@
 <h1>画像投稿フォーム</h1>
-  <%= form_with model: @post do |f| %>
+  
+  <%= form_with model: @post, url: customer_posts_path do |f| %>
     <h3>画像</h3>
       <%= f.file_field :image, accept: "image/*" %>
     <h3>投稿文</h>
