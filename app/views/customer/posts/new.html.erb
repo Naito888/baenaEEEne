@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+ <div class="col-lg-3"></div>
+ <div class="col-9">
+   <br>
+  <div class="row">
+    <h3 class="bg-light col-lg-3">新規投稿</h3>
+  </div>
+  <br>
+  <%= form_with model: @post, url: customer_posts_path do |f| %>
+  <div class="form-group row">
+    <label for="image" class="col-lg-2">投稿画像</label>
+    <%= f.file_field :image, accept: "image/*" %>
+  </div>
+  <div class="form-group row">
+    <label for="text" class="col-lg-2">投稿名</label>
+    <%= f.text_field :name, :class => "col-lg-4", :placeholder => "投稿名" %>
+  </div>
+  <div class="form-group row">
+    <label for="text" class="col-lg-2">投稿文</label>
+    <%= f.text_area :caption, :class => "col-lg-4" %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-2"></div>
+    <%= f.submit "新規投稿", :class => "btn btn-success col-lg-2" %>
+  </div>
+  <% end %>
+  </div>
+</div>
+</div>

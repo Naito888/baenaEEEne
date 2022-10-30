@@ -17,25 +17,27 @@ devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
 root :to =>  "customer/homes#top"
 
 namespace :customer do
-  
+
   get 'homes/about'
   get 'customers/mypage' => 'customers#show', as: 'mypage'
+  get 'customers/mypage/edit' => 'customers#edit', as: 'edit'
+
   resources :customers, only:[:show, :edit, :update]
   resources :posts, only:[:index, :new, :create, :confirm, :show, :edit, :update, :destroy, :destroy_all]
   resources :comments, only:[:index, :edit, :create, :update, :destroy]
   resources :follows, only:[:index, :create, :destroy]
   resources :likes, only:[:index, :create, :destroy]
-  
+
 end
 
 
 namespace :admin do
-    
+
   get '/'  => 'homes#top'
   resources :posts, only:[:index, :new, :create, :show, :edit, :update, :destroy, :destroy_all]
   resources :customers, only:[:index, :show, :edit, :update, :destroy]
   resources :comments, only:[:index, :edit, :create, :update, :destroy]
-  
+
 end
 
 
