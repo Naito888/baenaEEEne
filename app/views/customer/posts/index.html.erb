@@ -17,14 +17,22 @@
         </tr>
       </thead>
       <tbody>
+        
         <% @posts.each do |post| %>
-        <td><%= post.id %></td>
         <td>
           <%= link_to customer_post_path(post.id) do %>
+          <%= post.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+          <% end %>
+        </td>
+        <td>
+          <% if post.image.attached? %>
+            <%= image_tag post.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x200" %>
           <% end %>
         </td>
         <td><%= post.caption %></td>
-
+        
       </tbody>
       <% end %>
     </table>
