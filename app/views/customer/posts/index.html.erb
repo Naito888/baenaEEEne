@@ -13,7 +13,8 @@
           <th>投稿日</th>
           <th>投稿写真</th>
           <th>投稿文</th>
-
+          <th>コメント</th>
+          <th>いいね</th>
         </tr>
       </thead>
       <tbody>
@@ -32,7 +33,8 @@
           <% end %>
         </td>
         <td><%= post.caption %></td>
-        
+        <td><%= post.comments %></td>
+        <td><%= link_to "#{post.comments.count} コメント", customer_comments_path(@comment) %></td>
       </tbody>
       <% end %>
     </table>
