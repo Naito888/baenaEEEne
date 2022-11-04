@@ -1,10 +1,24 @@
-<h1>画像投稿フォーム</h1>
-  
-  <%= form_with model: @post, url: customer_posts_path do |f| %>
-    <h3>画像</h3>
-      <%= f.file_field :image, accept: "image/*" %>
-    <h3>投稿文</h>
-      <%= f.text_area :caption %>
- 
-    <%= f.submit '投稿' %>
-  <% end %>
+<div class="containar">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">画像投稿フォーム</h5>
+      <div class="form-body p-4">
+        <% if @post.errors.any? %>
+          <%= @post.errors.count %>件のエラーが発生しました
+          <% @post.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+        <%#= form_with model: @post, url: customer_post_path(@post.id), local:true do |f| %>
+        <%= form_with model: @post, url: customer_posts_path do |f| %>
+           <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+           <%#= f.file_field :image, accept: "image/*", class: "w-100" %>
+          <div class="mb-3 mt-4">
+          </div>
+          <%= f.text_area :caption, class:"form-control", rows:"4", placeholder:"投稿文をここに" %>
+          <%= f.submit '投稿', class:"btn btn-lg btn-block btn-info mt-4" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
