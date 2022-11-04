@@ -1,36 +1,14 @@
-<div class="container">
-  <div class="row">
-    <div class="col-2"></div>
-      <h3 class="col-2 bg-light text-center ml-3 mt-5 mb-5">マイページ</h3>
-    </div>
-
-    <div class="row text-algin-left">
-      <h4 class="col-2">登録情報</h4>
-    <div class="col-2">
-      <%= link_to "編集する", customer_edit_path, :class => "btn btn-success" %>
-    </div>
+<div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5">
+  <%= image_tag @customer.get_profile_image(100,100), class:"rounded-circle";  %>
+  <h5 class="profile-name display-4"><%= @customer.name %></h5>
+  <tr>
+    <td><%= @customer.email %></td>
+  </tr>
+  <% if @customer.id == current_customer.id %>
+  <div class="col-2">
+    <%= link_to "編集する", customer_edit_path, :class => "btn btn-success" %>
   </div>
-
+  <% end %>
 </div>
-<table class="table-bordered text-algin-left col-6 ml-5 mt-4 mb-5">
-  <thead>
-    <tr>
-      <th style="width: 20%" class="bg-light">画像</th>
-      <td><%= image_tag @customer.get_profile_image(300,300) %></td>
-    </tr>
-    <tr>
-      <th style="width: 20%" class="bg-light">ユーザ名</th>
-      <td style="width: 50%"><%= @customer.name %></td>
-    </tr>
-    <tr>
-      <th class="bg-light">メールアドレス</th>
-      <td><%= @customer.email %></td>
-    </tr>
-  </thead>
-</table>
-
-  <div class="row text-algin-left">
-    <h4 class="col-2">投稿履歴一覧</h4>
-    <%= link_to "一覧を見る", customer_posts_path, :class => "btn btn-primary" %></div>
-  </div>
+<%#= render 'post_images/list', post_images: @post %>
 
