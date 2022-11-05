@@ -18,7 +18,7 @@
           <span><i class="fa fa-comment"></i> <%= link_to "#{@post.comments.count}", customer_post_path(@post.id), class:"text-dark" %> ｜ </span>
           <% if @post.liked_by?(current_customer) %>
             <span>
-              <%= link_to(post_likes_path(@post), class:"text-dark", method: :delete) do %>
+              <%= link_to(customer_likes_path(@post), class:"text-dark", method: :delete) do %>
                 <i class="fa fa-heart" aria-hidden="true"></i> <%= @post.likes.count %>
               <% end %>
             </span>

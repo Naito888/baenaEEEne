@@ -29,7 +29,6 @@ namespace :customer do
   end
   #resources :comments, only:[:index, :edit, :create, :update, :destroy]
   resources :follows, only:[:index, :create, :destroy]
-  resources :likes, only:[:index, :create, :destroy]
 
 end
 

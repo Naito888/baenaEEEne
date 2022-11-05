@@ -1,13 +1,15 @@
 <div class="card-list-container py-5">
-  <div class="row text-right">
-    <%= link_to "+", new_customer_post_path, class: "btn btn-lg rounded-circle text-right ml-auto shadow-sm" %>
-  </div>
+   <div class="row text-right">
+    <%= link_to "+", new_customer_post_path, class: "btn btn-lg rounded-circle text-right btn-info ml-auto shadow-sm" %>
+   </div>
+ 
     <% @posts.each do |post| %>
-    <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card w-50 mx-auto mt- shadow-lg">
+
       <%= link_to customer_post_path(post.id) do %>
       <%= image_tag post.get_image, class:"card-img-top"; %>
       <% end %>
-     
+
       <div class="card-body">
         <div class="row">
           <div class="col-2">
@@ -21,8 +23,8 @@
         <span><i class="fa fa-comment"></i> <%= link_to "#{post.comments.count}", customer_post_path(post.id), class:"text-dark" %> ｜ </span>
         <% if post.liked_by?(current_customer) %>
           <span>
-            <%= link_to(post_likes_path(@post), class:"text-dark", method: :delete) do %>
-              <i class="fa fa-heart" aria-hidden="true"></i> <%= @post.likes.count %>
+            <%= link_to(customer_post_likes_path(post.id), class:"text-dark", method: :delete) do %>
+              <i class="fa fa-heart" aria-hidden="true"></i> <%= post.likes.count %>
             <% end %>
           </span>
           <% else %>

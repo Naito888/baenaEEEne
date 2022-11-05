@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body class="d-flex flex-column vh-100">
@@ -32,7 +32,7 @@
                   <%= link_to "投稿一覧", customer_posts_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-4">
-                  <%= link_to "一覧", customer_likes_path, class: "btn btn-outline-dark" %>
+                  <%= link_to "一覧", customer_post_likes_path(current_customer), class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-4">
                   <%= link_to "フォローリスト", customer_follows_path, class: "btn btn-outline-dark" %>
