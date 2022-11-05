@@ -22,4 +22,8 @@ class Post < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
+  def liked_by?(customer)
+    likes.exists?(customer_id: customer.id)
+  end
+  
 end
