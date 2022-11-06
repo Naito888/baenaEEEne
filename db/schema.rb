@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2022_10_29_061157) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", default: "", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(version: 2022_10_29_061157) do
   end
 
   create_table "follows", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "follower_id", null: false
-    t.integer "followee_id", null: false
   end
 
   create_table "likes", force: :cascade do |t|

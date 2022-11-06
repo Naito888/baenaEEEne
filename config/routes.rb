@@ -23,6 +23,10 @@ namespace :customer do
   get 'customers/mypage/edit' => 'customers#edit', as: 'edit'
 
   resources :customers, only:[:show, :edit, :update] do
+    #resources :follows, only:[:index, :create, :destroy]
+    resource :follows, only: [:create, :destroy, :index]
+    get 'followings' => 'follows#followings', as: 'followings'
+    get 'followers' => 'follows#followers', as: 'followers'
     get :search, on: :collection
   end
 
@@ -32,7 +36,8 @@ namespace :customer do
     get :search, on: :collection
   end
   #resources :comments, only:[:index, :edit, :create, :update, :destroy]
-  resources :follows, only:[:index, :create, :destroy]
+
+
 
 end
 
