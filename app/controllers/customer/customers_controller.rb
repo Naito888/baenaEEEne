@@ -13,6 +13,14 @@ class Customer::CustomersController < ApplicationController
     @customer.update(customer_params)
     redirect_to customer_mypage_path
   end
+  
+  def search
+    if params[:name].present?
+      @customers = Customer.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @customers = Customer.none
+    end
+  end
 
   private
 

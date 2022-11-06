@@ -22,7 +22,10 @@ namespace :customer do
   get 'customers/mypage' => 'customers#show', as: 'mypage'
   get 'customers/mypage/edit' => 'customers#edit', as: 'edit'
 
-  resources :customers, only:[:show, :edit, :update]
+  resources :customers, only:[:show, :edit, :update] do
+    get :search, on: :collection
+  end
+
   resources :posts, only:[:index, :new, :create, :confirm, :show, :edit, :update, :destroy, :destroy_all] do
     resources :comments, only:[:create, :destroy]
     resource :likes, only: [:create, :destroy]

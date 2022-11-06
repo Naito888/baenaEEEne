@@ -2,9 +2,9 @@
    <div class="row text-right">
     <%= link_to "+", new_customer_post_path, class: "btn btn-lg rounded-circle text-right btn-info ml-auto shadow-sm" %>
    </div>
- 
+
     <% @posts.each do |post| %>
-    <div class="card w-50 mx-auto mt- shadow-lg">
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
 
       <%= link_to customer_post_path(post.id) do %>
       <%= image_tag post.get_image, class:"card-img-top"; %>
