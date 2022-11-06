@@ -1,14 +1,19 @@
- <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @customers.each do |customer| %>
-        <tr>
-          <td><%= customer.name %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+ <div class="card-list-container py-5">
+    <% @customers.each do |customer| %>
+      <div class="card w-50 mx-auto mt-4 shadow-lg">
+
+
+        <div class="card-body mx-auto">
+          <div class="row">
+            <div class="col-3">
+              <%= image_tag customer.get_profile_image(300,300), class:"mt-3 rounded-circle"; %>
+            </div>
+          </div>
+        <div class="col-13">
+          <hr>
+          <span ><i class="fas fa-user"></i>  <%= customer.name %> ｜ </span>
+          <span>フォロワー数 <%#= customer.name %> </span>
+        </div>
+      </div>
+    <% end %>
+  </div>

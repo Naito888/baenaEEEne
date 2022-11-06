@@ -29,6 +29,7 @@ namespace :customer do
   resources :posts, only:[:index, :new, :create, :confirm, :show, :edit, :update, :destroy, :destroy_all] do
     resources :comments, only:[:create, :destroy]
     resource :likes, only: [:create, :destroy]
+    get :search, on: :collection
   end
   #resources :comments, only:[:index, :edit, :create, :update, :destroy]
   resources :follows, only:[:index, :create, :destroy]
