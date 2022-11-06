@@ -3,9 +3,9 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  
+
   has_one_attached :image
-  
+
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -13,7 +13,7 @@ class Post < ApplicationRecord
     end
     image
   end
-  
+
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -21,9 +21,18 @@ class Post < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
+
   def liked_by?(customer)
     likes.exists?(customer_id: customer.id)
   end
-  
+
+  def self.search(search)
+    if search != ""
+      Post.where(['caption LIKE(?)', "%#{search}%"])
+    else
+      Post.includes(:customer).order('created_at DESC')
+    end
+  end
+
+
 end

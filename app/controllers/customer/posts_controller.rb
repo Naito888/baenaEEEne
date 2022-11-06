@@ -9,6 +9,9 @@ class Customer::PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page])
+    if params[:keyword].present?
+      @posts = Post.search(params[:keyword]).page(params[:page])
+    end
   end
 
   def create
@@ -42,6 +45,10 @@ class Customer::PostsController < ApplicationController
   def destroy_all
   end
 
+  def search
+  @posts = Post.search(params[:keyword])
+  end
+  
   private
 
   def post_params
