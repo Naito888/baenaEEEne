@@ -1,5 +1,8 @@
 class Customer::FollowsController < ApplicationController
 
+  def followings
+  
+  end
 
   def index
     #customer = Customer.find(params[:customer_id])
