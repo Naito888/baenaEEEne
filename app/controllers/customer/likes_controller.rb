@@ -1,7 +1,8 @@
 class Customer::LikesController < ApplicationController
 
   def index
-
+    @likes = current_customer.likes
+    @post = Post.find(params[:post_id])
   end
 
   def create

@@ -1,5 +1,7 @@
 class Admin::PostsController < ApplicationController
+  
   def index
+    @posts = Post.find(params[:post_id])
   end
   
   def new

@@ -32,11 +32,9 @@ namespace :customer do
 
   resources :posts, only:[:index, :new, :create, :confirm, :show, :edit, :update, :destroy, :destroy_all] do
     resources :comments, only:[:create, :destroy]
-    resource :likes, only: [:index, :create, :destroy]
+    resources :likes, only: [:index, :create, :destroy]
     get :search, on: :collection
   end
-  #resources :comments, only:[:index, :edit, :create, :update, :destroy]
-
 
 
 end
