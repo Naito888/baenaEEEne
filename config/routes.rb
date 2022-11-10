@@ -14,7 +14,7 @@ devise_for :admins, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
-root :to =>  "customer/homes#top"
+root :to =>  "customer/posts#index"
 
 namespace :customer do
 
