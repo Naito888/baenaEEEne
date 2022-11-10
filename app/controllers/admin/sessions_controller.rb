@@ -8,7 +8,7 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
   
-  
+  # 管理者ログイン後の遷移先
   def after_sign_in_path_for(resource)
     admin_customers_path
   end

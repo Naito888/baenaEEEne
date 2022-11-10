@@ -38,7 +38,8 @@ class Customer::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to customer_post_path
+    #byebug
+    redirect_to customer_posts_path
   end
 
   def destroy_all
@@ -47,7 +48,7 @@ class Customer::PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword])
   end
-  
+
   private
 
   def post_params
