@@ -1,47 +1,34 @@
-<div class="container m-4 mx-auto">
-  <div class="row">
-    <h3 class="bg-light mb-4">ログイン</h3>
-  </div>
-  <div class="row">
-    <h3 class="bg-light ml-4">会員の方はこちらからログイン</h3>
-  </div>
-<br>
-<%= form_with model: @customer, url: customer_session_path do |f| %>
-  <div class="form-group row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-2 col-form-label">
-    <%= f.label :email, "メールアドレス" %>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light py-4 mb-0">ユーザーログイン</h5>
+      <div class="form-body p-4">
+        <div class="mx-auto text-center">
+          <p>メールアドレスと<br>パスワードを入力してください。</p>
+        </div>
+        <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+            </div>
+            <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス" %>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-lock"></i></span>
+            </div>
+            <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
+          </div>
+
+          <div class="mx-auto text-center">
+            <p>会員がお済みでない方<br>
+            <%= link_to new_customer_registration_path do %>こちら<% end %>から新規登録を行なってください。</p>
+          </div>
+          <%= f.submit "サインイン", class:"btn btn-lg btn-block btn-success mt-5" %>
+        <% end %>
+      </div>
     </div>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "col-lg-5", :placeholder => "sample@example.com" %>
   </div>
-
-  <div class="form-group row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-2 col-form-label">
-    <%= f.label :password, "パスワード" %>
-    </div>
-    <%= f.password_field :password, autocomplete: "current-password", :class => "col-lg-5" %>
-  </div>
-  <br>
-
-  <div class="form-group row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-2"></div>
-    <%= f.submit "ログイン", :class => "btn btn-primary col-lg-2 mb-3" %>
-  </div>
-<% end %>
-
-<div class="row">
-
-  <h3 class="bg-light">会員がお済みでない方</h3>
-</div>
-<div class="row">
-  <div class="col-2"></div>
-  <%= link_to new_customer_registration_path do %>こちら<% end %>から新規登録を行なってください。
-</div>
-
-<!--%= render "public/shared/links" %>-->
-
 </div>
 
 <%= render "customer/shared/error_messages", resource: resource %>

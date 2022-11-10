@@ -1,53 +1,41 @@
 <div class="container">
-  <div class="row">
-
- <div class="col-10">
-   <br>
-  <div class="row">
-    <h3 class="bg-light ml-5 mb-5 text-center">新規会員登録</h3>
-  </div>
-  <br>
-
-  <%= form_with model: @customer, url: customer_registration_path do |f| %>
-
-  <div class="form-group row">
-    <label for="text" class="col-lg-3">ユーザ名</label>
-    <div class="col-1"></div>
-    <%= f.text_field :name, :class => "col-lg-3 mr-5", :placeholder => "映えなくてよし子" %>
-  </div>
-  <div class="form-group row">
-    <label for="text" class="col-lg-3">メールアドレス</label>
-    <div class="col-1"></div>
-    <%= f.email_field :email, :class => "col-lg-3", :placeholder => "baenaEEEne@example.com" %>
-  </div>
-  <div class="form-group row">
-    <label for="text" class="col-lg-3">パスワード（６文字以上）</label>
-    <div class="col-1"></div>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="form-group row">
-    <label for="text" class="col-lg-3">パスワード（確認用）</label>
-    <div class="col-1"></div>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-
-  <div class="form-group row">
-    <div class="col-lg-3"></div>
-    <div class="col-1"></div>
-  </div>
-    <%= f.submit "新規登録", :class => "btn btn-success col-lg-2 mb-5 mt-3" %>
-  <% end %>
-
-  <div class="row">
-    <h3 class="bg-light ml-5 mb-3">既に登録済みの方</h3>
-  </div>
-  <div class="row ml-5 mb-4">
-  <%= link_to customer_session_path do %>こちら<% end %>からログインしてください。
-</div>
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx- mx-sm-auto text-center shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light py-4 mb-0">ユーザーログイン</h5>
+      <div class="form-body p-4">
+        <div class="mx-auto text-center">
+          <p>メールアドレスと<br>パスワードを入力してください。</p>
+        </div>
+        <%= form_with model: @customer, url: customer_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i></span>
+            </div>
+            <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前"%>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+            </div>
+            <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス" %>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-lock"></i></span>
+            </div>
+            <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-check-circle"></i></span>
+            </div>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
+          </div>
+          <%= f.submit "サインアップ", class:"btn btn-block btn-info mt-5" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-</div>
-
 <%= render "customer/shared/error_messages", resource: resource %>

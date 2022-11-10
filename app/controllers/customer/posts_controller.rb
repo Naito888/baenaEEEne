@@ -3,7 +3,6 @@ class Customer::PostsController < ApplicationController
   before_action :authenticate_customer!
 
   def new
-
     @post = Post.new
   end
 
@@ -19,9 +18,6 @@ class Customer::PostsController < ApplicationController
     @post.customer_id = current_customer.id
     @post.save
     redirect_to customer_post_path(@post)
-  end
-
-  def confirm
   end
 
   def show

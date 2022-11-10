@@ -21,11 +21,10 @@
         </div>
       </div>
     <div class="col-10">
-      <p class="card-title">投稿文：<%= @post.caption %></p>
+      <p class="card-text">投稿文：<%= @post.caption %></p>
       <span><i class="fas fa-user"></i> By <%= @post.customer.name %> ｜ </span>
       <span><i class="fa fa-calendar"></i> <%= @post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
       <span><i class="fa fa-comment"></i> <%= link_to "#{@post.comments.count}", customer_post_path(@post.id), class:"text-dark" %> ｜ </span>
-
 
      <% if @post.liked_by?(current_customer) %>
         <span>
@@ -40,12 +39,14 @@
           <% end %>
         </span>
       <% end %>
-
-      <% if current_customer.following?(@post.customer) %>
-        <%= link_to "フォロー外す", customer_customer_follows_path(@post.customer.id), method: :delete %>
-      <% else %>
-        <%= link_to "フォローする", customer_customer_follows_path(@post.customer.id), method: :post %>
-      <% end %>
+      <br>
+      <span>
+        <% if current_customer.following?(@post.customer) %>
+          <%= link_to "フォロー外す", customer_customer_follows_path(@post.customer.id), method: :delete %>
+        <% else %>
+          <%= link_to "フォローする", customer_customer_follows_path(@post.customer.id), method: :post %>
+        <% end %>
+      </span>
 
     </div>
   </div>
