@@ -1,8 +1,7 @@
 class Customer::FollowsController < ApplicationController
 
   def followings
-    customer = current_customer.follow(params[:customer_id])
-    @customer = customer.follower
+    @followings = current_customer.followings
   end
 
   #def index
@@ -33,6 +32,5 @@ class Customer::FollowsController < ApplicationController
     #customer = Customer.find(params[:customer_id])
     #@customer = customer.followers
   #end
-
 
 end

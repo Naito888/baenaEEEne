@@ -1,17 +1,10 @@
-<% @follows.each do |follow| %>
-  
+<% @followings.each do |following| %>
   <div class="profile-container w-75 d-flex mx-auto justify-content-around align-items-center border-bottom py-5">
-    <%= image_tag @customer.get_profile_image(100,100), class:"rounded-circle";  %>
-    <h5 class="profile-name display-4"><%= @customer.name %></h5>
+    <%= image_tag following.get_profile_image(100,100), class: "rounded-circle";  %>
+    <h5 class="profile-name display-4"><%= following.name %></h5>
     <tr>
-      <td><%= @customer.email %></td>
+      <td><%= following.email %></td>
     </tr>
-    <% if @customer.id == current_customer.id %>
-    <div class="col-2">
-      <%= link_to "編集する", customer_edit_path, :class => "btn btn-success" %>
-    </div>
-    <% end %>
-    </div>
-  <%#= render 'post_images/list', post_images: @post %>
   </div>
+  <%#= render 'post_images/list', post_images: @post %>
 <% end %>
