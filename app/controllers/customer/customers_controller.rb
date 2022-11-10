@@ -2,6 +2,7 @@ class Customer::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(current_customer.id)
+    @posts = Post.page(params[:page])
   end
 
   def edit
