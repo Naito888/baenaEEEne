@@ -18,5 +18,7 @@ class Customer::LikesController < ApplicationController
     like.destroy
     redirect_to customer_post_path(@post)
   end
-
+  
+  
+ 
 end

@@ -24,7 +24,7 @@ namespace :customer do
 
   resources :customers, only:[:show, :edit, :update] do
     #resources :follows, only:[:index, :create, :destroy]
-    resource :follows, only: [:create, :destroy, :index]
+    resources :follows, only: [:create, :destroy]
     get 'followings' => 'follows#followings', as: 'followings'
     get 'followers' => 'follows#followers', as: 'followers'
     get :search, on: :collection

@@ -1,13 +1,14 @@
 class Customer::FollowsController < ApplicationController
 
   def followings
-  
+    customer = current_customer.follow(params[:customer_id])
+    @customer = customer.follower
   end
 
-  def index
+  #def index
     #customer = Customer.find(params[:customer_id])
-    @customer = customer.followers
-  end
+    #@customer = customer.followers
+  #end
 
   # フォローするとき
   def create

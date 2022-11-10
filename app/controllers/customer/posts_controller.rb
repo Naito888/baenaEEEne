@@ -32,10 +32,13 @@ class Customer::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to cu_post_path(@post.id)
+    redirect_to customer_post_path(@post.id)
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to customer_post_path
   end
 
   def destroy_all

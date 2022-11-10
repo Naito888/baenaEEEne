@@ -25,7 +25,7 @@
             </span>
           <% end %>
           <% if @post.customer == current_customer %>
-            <span> ｜ </span><%= link_to "削除", customer_post_likes_path(@post), class:"text-dark", method: :delete %>
+            <span> ｜ </span><%= link_to "削除", customer_post_path(@post), class:"text-dark", method: :delete %>
           <% end %>
         </div>
       </div>
