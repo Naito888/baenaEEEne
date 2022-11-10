@@ -2,7 +2,7 @@ class Customer::LikesController < ApplicationController
 
   def index
     @likes = current_customer.likes
-    @post = Post.find(params[:post_id])
+    # @post = Post.find(params[:post_id])
   end
 
   def create
@@ -18,7 +18,7 @@ class Customer::LikesController < ApplicationController
     like.destroy
     redirect_to customer_post_path(@post)
   end
-  
-  
- 
+
+
+
 end

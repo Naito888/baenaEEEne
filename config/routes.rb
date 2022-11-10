@@ -24,15 +24,16 @@ namespace :customer do
 
   resources :customers, only:[:show, :edit, :update] do
     #resources :follows, only:[:index, :create, :destroy]
-    resources :follows, only: [:create, :destroy]
+    resource :follows, only: [:create, :destroy]
     get 'followings' => 'follows#followings', as: 'followings'
     get 'followers' => 'follows#followers', as: 'followers'
     get :search, on: :collection
   end
 
+  get 'likes' => 'likes#index'
   resources :posts, only:[:index, :new, :create, :confirm, :show, :edit, :update, :destroy, :destroy_all] do
     resources :comments, only:[:create, :destroy]
-    resources :likes, only: [:index, :create, :destroy]
+    resource :likes, only: [:create, :destroy]
     get :search, on: :collection
   end
 
