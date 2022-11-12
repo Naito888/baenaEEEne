@@ -5,7 +5,7 @@
     <td><%= @customer.email %></td>
   </tr>
   <tr>
-    <td><%= link_to "削除する", admin_customer_path(@customer.id), method: :delete, :class => "btn btn-sm btn-danger ml-4 mt-3 mb-3" %></td>
+    <td><%= link_to "削除する", admin_customer_path(@customer.id), method: :delete, data: {confirm: "削除しますか？"}, :class => "btn btn-sm btn-danger ml-4 mt-3 mb-3" %></td>
   </tr>  
 </div>
 <%#= render 'post_images/list', post_images: @post %>
