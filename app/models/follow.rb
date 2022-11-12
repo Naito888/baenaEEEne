@@ -2,7 +2,7 @@ class Follow < ApplicationRecord
   belongs_to :follower, class_name: "Customer"
   belongs_to :followed, class_name: "Customer"
 
-  validates_uniqueness_of :follwed_id, scope: :customer_id
+  validates_uniqueness_of :followed_id, scope: :follower_id
 
   # フォローをした、されたの関係
   # has_many :follows, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy

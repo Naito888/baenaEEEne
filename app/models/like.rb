@@ -3,6 +3,8 @@ class Like < ApplicationRecord
   belongs_to :customer
   belongs_to :post
 
+  validates_uniqueness_of :customer_id, scope: :post_id
+
   def liked_by?(customer)
     likes.exists?(customer_id: customer.id)
   end

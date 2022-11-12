@@ -28,10 +28,12 @@ class Customer < ApplicationRecord
   def follow(customer_id)
     follows.create(followed_id: customer_id)
   end
+
   # フォローを外すときの処理
   def unfollow(customer_id)
     follows.find_by(followed_id: customer_id).destroy
   end
+
   # フォローしているか判定
   def following?(cutomer)
     followings.include?(cutomer)
