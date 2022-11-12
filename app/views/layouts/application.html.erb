@@ -17,17 +17,17 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
-            <span>Sample</span>
+            <h4 class="mt-2">映えないいね</h4>
           </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
-                <li class="customer-name mr-5">
+                <li class="customer-name mr-5 mt-2">
                   ようこそ、<%= current_customer.name %> さん
                 </li>
-                <li class="mr-5">
+                <li class="mr-5 mt-2">
                   <%= form_with(url: search_customer_customers_path, local: true, method: :get, class: "search-form") do |form| %>
-                  <%= form.text_field :name, placeholder: "ユーザを検索する", class: "search-input" %>
+                  <%= form.text_field :name, placeholder: "映えないユーザ検索", class: "search-input" %>
                   <%= form.submit "検索", class: "search-btn" %>
                   <% end %>
                 </li>
@@ -38,7 +38,7 @@
                   <%= link_to "投稿一覧", customer_posts_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-2">
-                  <%= link_to "一覧", customer_likes_path, class: "btn btn-outline-dark" %>
+                  <%= link_to "映えないいね一覧", customer_likes_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-2">
                   <%= link_to "フォローリスト", customer_customer_followings_path(current_customer), class: "btn btn-outline-dark" %>
@@ -52,15 +52,15 @@
                 </li>
                 <li class="mr-5">
                   <%= form_with(url: search_customer_customers_path, local: true, method: :get, class: "search-form") do |form| %>
-                  <%= form.text_field :name, placeholder: "ユーザを検索する", class: "search-input" %>
+                  <%= form.text_field :name, placeholder: "映えないユーザ検索", class: "search-input" %>
                   <%= form.submit "検索", class: "search-btn" %>
                   <% end %>
                 </li>
                 <li class="ml-2">
-                  <%= link_to "投稿一覧", admin_posts_path, class: "btn btn-outline-dark" %>
+                  <%= link_to "映えない投稿一覧", admin_posts_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-2">
-                  <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-dark" %>
+                  <%= link_to "映えない会員一覧", admin_customers_path, class: "btn btn-outline-dark" %>
                 </li>
                 <!--<li class="ml-2">-->
                   <%#= link_to "コメント一覧", admin_comments_path, class: "btn btn-outline-dark" %>
@@ -71,7 +71,7 @@
               <% else %>
                  <li class="mr-5">
                   <%= form_with(url: search_customer_customers_path, local: true, method: :get, class: "search-form") do |form| %>
-                  <%= form.text_field :name, placeholder: "ユーザを検索する", class: "search-input" %>
+                  <%= form.text_field :name, placeholder: "映えないユーザ検索", class: "search-input" %>
                   <%= form.submit "検索", class: "search-btn" %>
                   <% end %>
                 </li>

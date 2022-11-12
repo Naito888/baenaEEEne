@@ -1,19 +1,17 @@
  <div class="card-list-container py-5">
     <% @customers.each do |customer| %>
       <div class="card w-50 mx-auto mt-4 shadow-lg">
-
-
         <div class="card-body mx-auto">
           <div class="row">
             <div class="col-3">
-              <%= image_tag customer.get_profile_image(300,300), class:"mt-3 rounded-circle"; %>
+              <%= image_tag customer.get_profile_image(200,200), class:"mt-3 rounded-circle"; %>
             </div>
           </div>
         <div class="col-13">
-          <hr>
-          <span ><i class="fas fa-user"></i>  <%= customer.name %> ｜ </span>
-          <span>フォロワー数 <%#= customer.name %> </span>
-        </div>
+        <hr>
+        <span ><i class="fas fa-user"></i>  <%= customer.name %></span>
+        <span> ｜ </span><%= link_to "映えない投稿一覧", customer_posts_path(customer.id) %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
