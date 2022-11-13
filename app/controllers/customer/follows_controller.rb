@@ -1,7 +1,7 @@
 class Customer::FollowsController < ApplicationController
 
   def followings
-    @followings = current_customer.followings
+    @followings = current_customer.followings.page(params[:page])
   end
 
   #def index

@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  validates :caption, {presence: true, lengh: {maximum: 50}}
+
   has_one_attached :image
 
   def get_image
