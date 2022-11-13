@@ -6,6 +6,7 @@
         <table class="table col-lg-10 mt-2 text-center">
           <thead>
             <tr class="table-secondary text-center">
+              <th>登録日</th>
               <th>会員ID</th>
               <th style="width: 30%">ユーザ名</th>
               <th style="width: 30%">メールアドレス</th>
@@ -14,6 +15,7 @@
 
           <tbody>
             <% @customers.each do |customer| %>
+            <td><%= customer.created_at.strftime('%Y/%m/%d') %></td>
             <td><%= customer.id %></td>
             <td><%= link_to admin_customer_path(customer.id) do %><%= customer.name %><% end %></td>
             <td><%= customer.email %></td>
