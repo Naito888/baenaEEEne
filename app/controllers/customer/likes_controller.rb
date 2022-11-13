@@ -1,7 +1,7 @@
 class Customer::LikesController < ApplicationController
 
   def index
-    @likes = current_customer.likes
+    @likes = current_customer.likes.page(params[:page])
     # @post = Post.find(params[:post_id])
   end
 

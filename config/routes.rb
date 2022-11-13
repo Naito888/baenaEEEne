@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+# ゲストログイン用
+devise_scope :customer do
+  post 'customers/guest_sign_in', to: 'customer/sessions#new_guest'
+end
+
   # 顧客用
 # URL /customer/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
