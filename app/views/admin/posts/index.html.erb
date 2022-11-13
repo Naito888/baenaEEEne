@@ -2,7 +2,7 @@
 
   <div class="w-50 text-right mx-auto">
     <%= form_with(url: admin_posts_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "映えない投稿を検索する", class: "search-input" %>
+    <%= form.text_field :keyword, placeholder: "映えない投稿検索する", class: "search-input" %>
     <%= form.submit "検索", class: "search-btn" %>
     <% end %>
   </div>
@@ -19,14 +19,17 @@
         <div class="col-2">
           <%= image_tag post.customer.get_profile_image(100,100), class:"mt-3 rounded-circle"; %>
         </div>
-      </div>
-    <div class="col-10">
-      <p class="card-title">投稿文：<%= post.caption %></p>
-      <span><i class="fas fa-user"></i> By <%= post.customer.name %> ｜ </span>
-      <span><i class="fa fa-calendar"></i> <%= post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
-      <span><i class="fa fa-comment"></i> <%= link_to "#{post.comments.count}", customer_post_path(post.id), class:"text-dark" %> ｜ </span>
+        <div class="col-1">
+        </div>
 
-      <br>
+      <div class="col-7">
+        <p class="card-title"><%= post.caption %></p>
+        <span><i class="fas fa-user"></i> By <%= post.customer.name %></span><br>
+        <span><i class="fa fa-calendar"></i> <%= post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+        <span><i class="fa fa-comment"></i> <%= link_to "#{post.comments.count}", customer_post_path(post.id), class:"text-dark" %></span>
+
+
+      </div>
     </div>
   </div>
   </div>
