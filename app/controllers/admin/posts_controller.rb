@@ -14,6 +14,10 @@ class Admin::PostsController < ApplicationController
   def create
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+  end
+
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
@@ -35,7 +39,7 @@ class Admin::PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword])
   end
-  
+
   private
 
   def post_params
