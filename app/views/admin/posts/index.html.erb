@@ -10,7 +10,7 @@
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
 
-    <%= link_to customer_post_path(post.id) do %>
+    <%= link_to edit_admin_post_path(post.id) do %>
     <%= image_tag post.get_image, class:"card-img-top"; %>
     <% end %>
 
@@ -31,4 +31,7 @@
   </div>
   </div>
   <% end %>
+  <div class="w-50 mt-2 text-right mx-auto">
+    <%= paginate @posts %>
+  </div>
 </div>
