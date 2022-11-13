@@ -1,27 +1,18 @@
-<div class="card-list-container py-2">
-  <div class="w-100 text-right mx-auto">
+<div class="card-list-container py-3">
+  <div class="w-100 text-right mx-auto" style="justify-content: center;">
 
     <div class="container">
       <div class="row">
-        <table class="table col-lg-10 mt-2 text-center">
-          <thead>
-            <tr class="table-secondary text-center">
-              <th>登録日</th>
-              <th>会員ID</th>
-              <th style="width: 30%">ユーザ名</th>
-              <th style="width: 30%">メールアドレス</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @customers.each do |customer| %>
-            <td><%= customer.created_at.strftime('%Y/%m/%d') %></td>
-            <td><%= customer.id %></td>
-            <td><%= link_to admin_customer_path(customer.id) do %><%= customer.name %><% end %></td>
-            <td><%= customer.email %></td>
-          </tbody>
-            <% end %>
-        </table>
+        <div class="col-3 table-secondary text-center py-3">会員ID</div>
+        <div class="col-3 table-secondary text-center py-3">登録日</div>
+        <div class="col-3 table-secondary text-center py-3">ユーザ名</div>
+        <div class="col-3 table-secondary text-center py-3">メールアドレス</div>
+        <% @customers.each do |customer| %>
+          <div class="col-3 text-center py-2"><%= customer.id %></div>
+          <div class="col-3 text-center py-2"><%= customer.created_at.strftime('%Y/%m/%d') %></div>
+          <div class="col-3 text-center py-2"><%= link_to admin_customer_path(customer.id) do %><%= customer.name %><% end %></div>
+          <div class="col-3 text-center py-2"><%= customer.email %></div>
+        <% end %>
       </div>
     </div>
   </div>
