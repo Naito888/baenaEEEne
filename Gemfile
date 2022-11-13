@@ -63,7 +63,7 @@ gem "refile-mini_magick"
 
 gem 'kaminari','~> 1.2.1'
 
-
+gem 'active_storage_validations', '~> 0.8'
 
 gem 'dotenv-rails'
 group :production do

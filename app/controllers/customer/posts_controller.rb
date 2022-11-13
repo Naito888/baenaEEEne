@@ -17,7 +17,7 @@ class Customer::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     @post.save
-    redirect_to customer_post_path(@post)
+    redirect_to customer_posts_path(@post)
   end
 
   def show
