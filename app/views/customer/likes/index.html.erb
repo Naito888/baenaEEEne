@@ -10,7 +10,7 @@
   <% @likes.each do |like| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
 
-    <%= link_to customer_post_likes_path(like.id) do %>
+    <%= link_to customer_post_path(like.id) do %>
     <%= image_tag like.post.get_image, class:"card-img-top"; %>
     <% end %>
 
