@@ -22,16 +22,14 @@
         <div class="col-1">
         </div>
 
-      <div class="col-7">
-        <p class="card-title"><%= post.caption %></p>
-        <span><i class="fas fa-user"></i> By <%= post.customer.name %></span><br>
-        <span><i class="fa fa-calendar"></i> <%= post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
-        <span><i class="fa fa-comment"></i> <%= link_to "#{post.comments.count}", customer_post_path(post.id), class:"text-dark" %></span>
-
-
+        <div class="col-7">
+          <p class="card-title"><%= post.caption %></p>
+          <span><i class="fas fa-user"></i> By <%= post.customer.name %></span><br>
+          <span><i class="fa fa-calendar"></i> <%= post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+          <span><i class="fa fa-comment"></i> <%= link_to "#{post.comments.count}", customer_post_path(post.id), class:"text-dark" %></span>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <% end %>
   <div class="w-50 mt-2 text-right mx-auto">
