@@ -58,8 +58,8 @@
               <i class="fa fa-heart" aria-hidden="true"></i> <%= post.likes.count %>
             <% end %>
           </span>
-        <% end %>
-       ｜ <span>
+          <% end %>
+          ｜ <span>
           <% if current_customer.following?(post.customer) %>
             <%= link_to "フォロー外す", customer_customer_follows_path(post.customer.id), method: :delete %>
           <% else %>
@@ -68,7 +68,7 @@
           </span>
         </div>
       </div>
-  </div>
+    </div>
   </div>
   <% end %>
   <div class="w-50 mt-2 text-right mx-auto">
