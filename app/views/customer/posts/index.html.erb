@@ -1,4 +1,4 @@
-<div class="card-list-container py-5 mt-2 mb-4">
+<div class="card-list-container py-5 mt-2 mb-5">
 
   <div class="row text-right" style="position: absolute; right:25%;">
     <%= link_to "+", new_customer_post_path, class: "btn btn-lg rounded-circle text-right btn-info ml-auto shadow-sm" %>
@@ -31,7 +31,7 @@
           <span><i class="fas fa-user mt-5"></i> By <%= post.customer.name %></span><br>
           <span><i class="fa fa-calendar"></i> <%= post.created_at.strftime('%Y/%m/%d') %> ｜ </span>
           <span><i class="fa fa-comment"></i> <%= link_to "#{post.comments.count}", customer_post_path(post.id), class:"text-dark" %> ｜ </span>
-  
+
          <% if post.liked_by?(current_customer) %>
           <span>
             <%= link_to(customer_post_likes_path(post.id), class:"text-dark", method: :delete) do %>
