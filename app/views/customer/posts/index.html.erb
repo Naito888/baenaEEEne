@@ -6,7 +6,7 @@
 
   <div class="w-50 text-right mx-auto">
     <%= form_with(url: customer_posts_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :keyword, placeholder: "映えない投稿を検索する", class: "search-input" %>
+    <%= form.text_field :keyword, placeholder: "映えない投稿検索", class: "search-input" %>
     <%= form.submit "検索", class: "search-btn" %>
 
     <% end %>
